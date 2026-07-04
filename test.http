@@ -1,0 +1,167 @@
+################################################
+### HEALTH CHECK
+################################################
+GET http://localhost:5000
+
+
+
+################################################
+### REGISTER USER (ADMIN)
+################################################
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Admin User",
+  "email": "admin@test.com",
+  "password": "123456",
+  "role": "admin"
+}
+
+
+
+################################################
+### REGISTER NORMAL USER
+################################################
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Customer User",
+  "email": "user@test.com",
+  "password": "123456",
+  "role": "user"
+}
+
+
+
+################################################
+### LOGIN (ADMIN)
+################################################
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@test.com",
+  "password": "123456"
+}
+
+
+
+################################################
+### LOGIN (USER)
+################################################
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "user@test.com",
+  "password": "123456"
+}
+
+
+
+################################################
+### CREATE CATEGORY (ADMIN TOKEN REQUIRED)
+################################################
+POST http://localhost:5000/api/categories
+Content-Type: application/json
+Authorization: Bearer YOUR_ADMIN_TOKEN_HERE
+
+{
+  "name": "Sculpture"
+}
+
+
+
+################################################
+### GET ALL CATEGORIES
+################################################
+GET http://localhost:5000/api/categories
+
+
+
+################################################
+### CREATE PRODUCT (ADMIN TOKEN REQUIRED)
+################################################
+POST http://localhost:5000/api/products
+Content-Type: application/json
+Authorization: Bearer YOUR_ADMIN_TOKEN_HERE
+
+{
+  "name": "Golden Horse Sculpture",
+  "description": "Premium handcrafted sculpture",
+  "price": 5000,
+  "image_url": "https://example.com/horse.jpg",
+  "category_id": 1,
+  "is_featured": true
+}
+
+
+
+################################################
+### GET ALL PRODUCTS (PAGINATION + FILTER)
+################################################
+GET http://localhost:5000/api/products?page=1&limit=5
+
+
+
+################################################
+### FILTER BY CATEGORY
+################################################
+GET http://localhost:5000/api/products?category=1
+
+
+
+################################################
+### FILTER BY PRICE RANGE
+################################################
+GET http://localhost:5000/api/products?minPrice=1000&maxPrice=6000
+
+
+
+################################################
+### SORT BY PRICE
+################################################
+GET http://localhost:5000/api/products?sort=price
+
+
+
+################################################
+### GET FEATURED PRODUCTS
+################################################
+GET http://localhost:5000/api/products/featured
+
+
+
+################################################
+### GET SINGLE PRODUCT
+################################################
+GET http://localhost:5000/api/products/1
+
+
+
+################################################
+### UPDATE PRODUCT (ADMIN TOKEN REQUIRED)
+################################################
+PUT http://localhost:5000/api/products/1
+Content-Type: application/json
+Authorization: Bearer YOUR_ADMIN_TOKEN_HERE
+
+{
+  "name": "Updated Sculpture",
+  "description": "Updated description",
+  "price": 6000,
+  "image_url": "https://example.com/new.jpg",
+  "category_id": 1,
+  "is_featured": false
+}
+
+
+
+################################################
+### DELETE PRODUCT (ADMIN TOKEN REQUIRED)
+################################################
+DELETE http://localhost:5000/api/products/1
+Authorization: Bearer YOUR_ADMIN_TOKEN_HERE
+
