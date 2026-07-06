@@ -32059,3 +32059,28 @@ margin:auto !important;
 }
 
 }
+/* Clerk login page spacing fix */
+
+.login-page,
+.auth-page {
+    min-height: 100vh;
+    padding-top: 130px;
+    padding-bottom: 120px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Clerk card fix */
+.cl-card {
+    margin-bottom: 20px !important;
+}
+
+
+/* Footer should stay down */
+footer {
+    position: relative;
+    margin-top: 80px;
+}
