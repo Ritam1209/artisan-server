@@ -1,4 +1,4 @@
-import { verifyToken } from "@clerk/backend";
+import { requireAuth } from "@clerk/express";
 
 export const protect = async (req,res,next)=>{
 
@@ -56,3 +56,5 @@ message:"Invalid token"
 }
 
 };
+
+export const protectRoute = requireAuth();
