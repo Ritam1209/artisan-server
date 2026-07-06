@@ -2,7 +2,7 @@ import sculptureImg from "../assets/art gallery sculpture.avif";
 import paintingImg from "../assets/abstract Paining.avif";
 import interiorImg from "../assets/Interior Design.avif";
 import featuredImg from "../assets/Modern Sculpture.avif";
-import paintingImag from "../assets/Painting Colour.avif";
+import paintingImag from "../assets/Painting colour.avif";
 import sculptureImag from "../assets/Sculpture Work.avif";
 
 function HomePage() {
